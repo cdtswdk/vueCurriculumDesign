@@ -6,7 +6,9 @@ import router from './router'
 import ElementUi from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
+import vuex from 'vuex'
 
+Vue.use(vuex);
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 Vue.use(ElementUi);

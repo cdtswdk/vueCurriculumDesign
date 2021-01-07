@@ -11,7 +11,15 @@ export function listUser(query) {
 
 export function getUserById(id) {
   return request({
-    url: '/user/getUser/'+id,
+    url: '/user/getUser/' + id,
     method: 'get'
+  })
+}
+
+export function userLogin(loginData) {
+  return request({
+    url: '/user/login',
+    method: 'post',
+    params: loginData
   })
 }
