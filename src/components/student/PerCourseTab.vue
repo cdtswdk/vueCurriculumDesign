@@ -40,7 +40,7 @@
 
 <script>
 
-  import {getStuCourse,listStuCourseByStuId} from '@/api/student'
+  import {listStuCourseByStuId} from '@/api/student'
 
   export default {
     name: "PerCourseTab",
@@ -60,13 +60,6 @@
       this.getList();
     },
     methods:{
-      initData(){
-        const StudentNum = this.$route.query.username;
-        getStuCourse(StudentNum).then(res => {
-          console.log(res);
-          this.tableData = res;
-        })
-      },
       getList(){
         this.queryParams.stuId = this.$route.query.username;
         listStuCourseByStuId(this.queryParams).then(res=>{

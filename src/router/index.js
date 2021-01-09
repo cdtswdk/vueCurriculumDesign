@@ -1,13 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+import baseIndex from '@/components/base/BaseIndex'
 import Login from '@/components/base/Login'
+
 import stuIndex from '@/components/student/StuIndex'
-import teaIndex from '@/components/teacher/TeaIndex'
-import manIndex from '@/components/manager/ManIndex'
 import perCourseTab from '@/components/student/PerCourseTab'
 import clsCourseTab from '@/components/student/ClsCourseTab'
 import stuGradeTab from '@/components/student/StuGradeTab'
-import baseIndex from '@/components/base/BaseIndex'
+
+import teaIndex from '@/components/teacher/TeaIndex'
+import teaPerCourseTab from '@/components/teacher/PerCourseTab'
+
+
+import manIndex from '@/components/manager/ManIndex'
+
 
 Vue.use(Router);
 
@@ -46,15 +53,20 @@ export default new Router({
       ]
     },
     {
-      path: '/teacher/teaIndex',
-      name: 'teaIndex',
+      path: '/teacher',
+      name: 'teacher',
       component: teaIndex,
       children:[
         {
           path: '/',
           name: 'BaseIndex',
           component: baseIndex
-        }
+        },
+        {
+          path: '/teacher/perCourseTab',
+          name: 'TeaPerCourseTab',
+          component: teaPerCourseTab
+        },
       ]
 
     },

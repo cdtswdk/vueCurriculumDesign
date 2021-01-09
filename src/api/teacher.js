@@ -1,8 +1,8 @@
 import request from '@/utils/request'
 
-export function listStuCourseByStuId(query) {
+export function listTeaCourseByTeaId(query) {
   return request({
-    url: '/student/listCourseByStuId',
+    url: '/teacher/listCourseByTeaId',
     method: 'get',
     params:query
   })

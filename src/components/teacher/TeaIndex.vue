@@ -56,7 +56,7 @@
 
 <script>
   export default {
-    name: "StuIndex",
+    name: "TeaIndex",
     data() {
       return {
       }
@@ -72,7 +72,7 @@
     methods: {
       toBaseIndex(){
         this.$router.push({
-          path: '/student/',
+          path: '/teacher/',
           query: {
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
@@ -81,7 +81,7 @@
       },
       toPerCourseTab() {
         this.$router.push({
-          path: '/student/perCourseTab',
+          path: '/teacher/perCourseTab',
           query: {
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
