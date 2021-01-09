@@ -5,17 +5,17 @@
       border
       style="width: 100%">
       <el-table-column
-        prop="coursenum"
+        prop="courseid"
         label="课程编号"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="courseName"
-        label="课程编号"
+        prop="coursename"
+        label="课程名称"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="teachernum"
+        prop="teacherid"
         label="教师编号"
         width="180">
       </el-table-column>
@@ -40,7 +40,7 @@
 
 <script>
 
-  import {getStuCourse,listStuCourseByStuNum} from '@/api/student'
+  import {getStuCourse,listStuCourseByStuId} from '@/api/student'
 
   export default {
     name: "PerCourseTab",
@@ -52,12 +52,11 @@
         queryParams: {
           page: 1,
           pageSize: 5,
-          stuNum: undefined
+          stuId: undefined
         }
       }
     },
     created() {
-      // this.initData();
       this.getList();
     },
     methods:{
@@ -69,8 +68,8 @@
         })
       },
       getList(){
-        this.queryParams.stuNum = this.$route.query.username;
-        listStuCourseByStuNum(this.queryParams).then(res=>{
+        this.queryParams.stuId = this.$route.query.username;
+        listStuCourseByStuId(this.queryParams).then(res=>{
           this.tableData = res.data;
           this.total = res.recordsTotal;
         })

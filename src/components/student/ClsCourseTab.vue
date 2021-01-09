@@ -5,7 +5,7 @@
       border
       style="width: 100%">
       <el-table-column
-        prop="coursenum"
+        prop="courseid"
         label="课程编号"
         width="180">
       </el-table-column>
@@ -15,13 +15,13 @@
         width="180">
       </el-table-column>
       <el-table-column
-        prop="teachernum"
+        prop="teacherid"
         label="教师编号"
         width="180">
       </el-table-column>
       <el-table-column
         prop="teachername"
-        label="教师编号"
+        label="教师姓名"
         width="180">
       </el-table-column>
       <el-table-column
@@ -45,7 +45,7 @@
 
 <script>
 
-  import {listClsCourseByStuNum} from '@/api/student'
+  import {listClsCourseByStuId} from '@/api/student'
 
   export default {
     name: "ClsCourseTab",
@@ -57,25 +57,24 @@
         queryParams: {
           page: 1,
           pageSize: 5,
-          stuNum: undefined
+          stuId: undefined
         }
       }
     },
     created() {
-      // this.initData();
       this.getList();
     },
     methods:{
       initData(){
-        const StudentNum = this.$route.query.username;
-        listClsCourseByStuNum(StudentNum).then(res => {
+        const StudentId = this.$route.query.username;
+        listClsCourseByStuId(StudentId).then(res => {
           console.log(res);
           this.tableData = res;
         })
       },
       getList(){
-        this.queryParams.stuNum = this.$route.query.username;
-        listClsCourseByStuNum(this.queryParams).then(res=>{
+        this.queryParams.stuId = this.$route.query.username;
+        listClsCourseByStuId(this.queryParams).then(res=>{
           this.tableData = res.data;
           this.total = res.recordsTotal;
         })

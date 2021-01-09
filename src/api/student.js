@@ -1,30 +1,30 @@
 import request from '@/utils/request'
 
-export function getStuCourse(StudentNum) {
+export function getStuCourse(StudentId) {
   return request({
-    url:'/student/getCourse/'+StudentNum,
+    url:'/student/getCourse/'+StudentId,
     method:'get'
   })
 }
-export function listStuCourseByStuNum(query) {
+export function listStuCourseByStuId(query) {
   return request({
-    url: '/student/listCourseByStuNum',
+    url: '/student/listCourseByStuId',
     method: 'get',
     params:query
   })
 }
 
-export function listClsCourseByStuNum(query) {
+export function listClsCourseByStuId(query) {
   return request({
-    url: '/student/listClassByStuNum',
+    url: '/student/listClassByStuId',
     method: 'get',
     params:query
   })
 }
 
-export function listStuGradeByStuNum(query) {
+export function listStuGradeByStuId(query) {
   return request({
-    url: '/student/listGradeByStuNum',
+    url: '/student/listGradeByStuId',
     method: 'get',
     params:query
   })

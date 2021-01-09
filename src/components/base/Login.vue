@@ -1,9 +1,9 @@
 <template>
   <div>
     <div>
-      <el-radio v-model="ruleForm2.userType" label="1">学生</el-radio>
-      <el-radio v-model="ruleForm2.userType" label="2">老师</el-radio>
-      <el-radio v-model="ruleForm2.userType" label="3">管理员</el-radio>
+      <el-radio v-model="ruleForm2.userType" label=1>学生</el-radio>
+      <el-radio v-model="ruleForm2.userType" label=2>老师</el-radio>
+      <el-radio v-model="ruleForm2.userType" label=3>管理员</el-radio>
     </div>
     <div class="login-container">
       <el-form :model="ruleForm2" :rules="rules2"
@@ -27,11 +27,6 @@
                     placeholder="密码"
           ></el-input>
         </el-form-item>
-        <el-checkbox
-          v-model="checked"
-          class="rememberme"
-        >记住密码
-        </el-checkbox>
         <el-form-item style="width:100%;">
           <el-button type="primary" style="width:100%;" @click="handleSubmit" :loading="loginLoading">登录</el-button>
         </el-form-item>
@@ -68,7 +63,7 @@
             this.loginLoading = true;
             userLogin(this.ruleForm2).then(res => {
               console.log(res);
-              if (res.usertype === 1) {
+              if (res.usertype === "1") {
                 this.$router.push({
                   path: '/student',
                   query: {
@@ -76,7 +71,7 @@
                     username: res.username
                   }
                 })
-              } else if (res.usertype === 2) {
+              } else if (res.usertype === "2") {
                 this.$router.push({
                   path: '/teacher/teaIndex',
                   query: {
@@ -84,7 +79,7 @@
                     username: res.username
                   }
                 })
-              } else if (res.usertype === 3) {
+              } else if (res.usertype === "3") {
                 this.$router.push(
                   {
                     path: '/teacher/teaIndex',

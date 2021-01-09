@@ -5,7 +5,7 @@
       border
       style="width: 100%">
       <el-table-column
-        prop="coursenum"
+        prop="courseid"
         label="课程编号"
         width="180">
       </el-table-column>
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-  import {listStuGradeByStuNum} from '@/api/student'
+  import {listStuGradeByStuId} from '@/api/student'
 
   export default {
     name: "StuGradeTab",
@@ -56,25 +56,24 @@
         queryParams: {
           page: 1,
           pageSize: 5,
-          stuNum: undefined
+          stuId: undefined
         }
       }
     },
     created() {
-      // this.initData();
       this.getList();
     },
     methods:{
       initData(){
-        const StudentNum = this.$route.query.username;
-        listStuGradeByStuNum(StudentNum).then(res => {
+        const StudentId = this.$route.query.username;
+        listStuGradeByStuId(StudentId).then(res => {
           console.log(res);
           this.tableData = res;
         })
       },
       getList(){
-        this.queryParams.stuNum = this.$route.query.username;
-        listStuGradeByStuNum(this.queryParams).then(res=>{
+        this.queryParams.stuId = this.$route.query.username;
+        listStuGradeByStuId(this.queryParams).then(res=>{
           this.tableData = res.data;
           this.total = res.recordsTotal;
         })
