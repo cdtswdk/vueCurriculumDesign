@@ -2,32 +2,31 @@
   <div>
     <el-container style="height: 500px; border: 1px solid #eee">
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-        <el-menu :default-openeds="['1', '3']">
+        <el-menu :default-openeds="['1','2']">
+          <el-menu-item-group>
+            <el-menu-item @click="toBaseIndex"><i class="el-icon-back"></i>首页</el-menu-item>
+          </el-menu-item-group>
           <el-submenu index="1">
-            <template slot="title"><i class="el-icon-message"></i>功能</template>
+            <template slot="title"><i class="el-icon-message"></i>信息查询</template>
             <el-menu-item-group>
-              <template slot="title">分组一</template>
-              <el-menu-item index="1-1" @click="toPerCourseTab">
-                个人课表
-              </el-menu-item>
-              <el-menu-item index="1-2">班级课表</el-menu-item>
+              <template slot="title">课表</template>
+              <el-menu-item index="1-1" @click="toPerCourseTab">个人课表</el-menu-item>
+              <el-menu-item index="1-2" @click="toClsCourseTab">班级课表</el-menu-item>
             </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="1-3">绩点查询</el-menu-item>
-              <el-menu-item index="1-4">选专业课</el-menu-item>
+            <el-menu-item-group title="成绩">
+              <el-menu-item index="1-3" @click="toStuGradeTab">成绩查询</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="2">
-            <template slot="title"><i class="el-icon-menu"></i>个人信息查询</template>
+            <template slot="title"><i class="el-icon-menu"></i>操作</template>
             <el-menu-item-group>
-              <template slot="title">分组一</template>
-              <el-menu-item index="2-1">选项1</el-menu-item>
-              <el-menu-item index="2-2">选项2</el-menu-item>
+              <template slot="title">选课</template>
+              <el-menu-item index="2-1" @click="toStuSelCourseTab">选专业课</el-menu-item>
             </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="2-3">选项3</el-menu-item>
+            <el-menu-item-group title="查询二">
+              <el-menu-item index="2-2">选项3</el-menu-item>
             </el-menu-item-group>
-            <el-submenu index="2-4">
+            <el-submenu index="2-3">
               <template slot="title">选项4</template>
               <el-menu-item index="2-4-1">选项4-1</el-menu-item>
             </el-submenu>
@@ -45,16 +44,9 @@
             </el-dropdown-menu>
           </el-dropdown>
           <span>欢迎您，{{$route.query.username}}</span>
+          <el-link type="primary" @click="logout">退出</el-link>
         </el-header>
         <el-main>
-          <!--<el-table :data="tableData">
-            <el-table-column prop="date" label="日期" width="140">
-            </el-table-column>
-            <el-table-column prop="name" label="姓名" width="120">
-            </el-table-column>
-            <el-table-column prop="address" label="地址">
-            </el-table-column>
-          </el-table>-->
           <router-view></router-view>
         </el-main>
       </el-container>
@@ -66,13 +58,7 @@
   export default {
     name: "StuIndex",
     data() {
-      const item = {
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      };
       return {
-        tableData: Array(20).fill(item)
       }
     },
     beforeCreate() {
@@ -84,6 +70,15 @@
       }
     },
     methods: {
+      toBaseIndex(){
+        this.$router.push({
+          path: '/student/',
+          query: {
+            usertype: this.$route.query.usertype,
+            username: this.$route.query.username
+          }
+        })
+      },
       toPerCourseTab() {
         this.$router.push({
           path: '/student/perCourseTab',
@@ -91,6 +86,36 @@
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
+        })
+      },
+      toClsCourseTab() {
+        this.$router.push({
+          path: '/student/clsCourseTab',
+          query: {
+            usertype: this.$route.query.usertype,
+            username: this.$route.query.username
+          }
+        })
+      },
+      toStuGradeTab() {
+        this.$router.push({
+          path: '/student/stuGradeTab',
+          query: {
+            usertype: this.$route.query.usertype,
+            username: this.$route.query.username
+          }
+        })
+      },
+      toStuSelCourseTab() {
+
+      },
+      logout() {
+        this.$confirm('您确定退出吗？').then(() => {
+          this.$message({
+            message: '退出成功',
+            type: 'warning'
+          });
+          window.location.href = '/';
         })
       }
     }

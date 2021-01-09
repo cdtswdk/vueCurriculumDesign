@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Base from '@/components/base/Base'
 import User from '@/components/user/User'
 import Login from '@/components/base/Login'
 import stuIndex from '@/components/student/StuIndex'
 import teaIndex from '@/components/teacher/TeaIndex'
 import manIndex from '@/components/manager/ManIndex'
 import perCourseTab from '@/components/student/PerCourseTab'
+import clsCourseTab from '@/components/student/ClsCourseTab'
+import stuGradeTab from '@/components/student/StuGradeTab'
+import baseIndex from '@/components/student/BaseIndex'
 
 Vue.use(Router);
 
@@ -23,19 +25,29 @@ export default new Router({
       component: User
     },
     {
-      path: '/base',
-      name: 'Base',
-      component: Base
-    },
-    {
       path: '/student',
       name: 'student',
       component: stuIndex,
-      children:[
+      children: [
         {
-          path:'/student/perCourseTab',
+          path: '/',
+          name: 'BaseIndex',
+          component: baseIndex
+        },
+        {
+          path: '/student/perCourseTab',
           name: 'PerCourseTab',
-          component:perCourseTab
+          component: perCourseTab
+        },
+        {
+          path: '/student/clsCourseTab',
+          name: 'ClsCourseTab',
+          component: clsCourseTab
+        },
+        {
+          path: '/student/stuGradeTab',
+          name: 'StuGradeTab',
+          component: stuGradeTab
         }
       ]
     },

@@ -10,22 +10,27 @@
         width="180">
       </el-table-column>
       <el-table-column
-        prop="courseName"
-        label="课程编号"
+        prop="coursename"
+        label="课程名字"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="teachernum"
-        label="教师编号"
-        width="180">
+        prop="coursestatus"
+        label="课程状态">
+      </el-table-column>
+      <el-table-column
+        prop="coursetype"
+        label="课程类型">
       </el-table-column>
       <el-table-column
         prop="grade"
-        label="成绩">
+        label="成绩"
+        width="180">
       </el-table-column>
       <el-table-column
         prop="gradepoint"
-        label="绩点">
+        label="绩点"
+        width="180">
       </el-table-column>
     </el-table>
     <pagination
@@ -39,11 +44,10 @@
 </template>
 
 <script>
-
-  import {getStuCourse,listStuCourseByStuNum} from '@/api/student'
+  import {listStuGradeByStuNum} from '@/api/student'
 
   export default {
-    name: "PerCourseTab",
+    name: "StuGradeTab",
     data() {
       return {
         tableData: [],
@@ -63,14 +67,14 @@
     methods:{
       initData(){
         const StudentNum = this.$route.query.username;
-        getStuCourse(StudentNum).then(res => {
+        listStuGradeByStuNum(StudentNum).then(res => {
           console.log(res);
           this.tableData = res;
         })
       },
       getList(){
         this.queryParams.stuNum = this.$route.query.username;
-        listStuCourseByStuNum(this.queryParams).then(res=>{
+        listStuGradeByStuNum(this.queryParams).then(res=>{
           this.tableData = res.data;
           this.total = res.recordsTotal;
         })
