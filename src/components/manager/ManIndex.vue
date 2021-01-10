@@ -63,58 +63,87 @@
   export default {
     name: "StuIndex",
     data() {
-      return {
-      }
+      return {}
     },
     beforeCreate() {
       if (this.$route.query.usertype == null || this.$route.query.username == null) {
         this.$message('管理员尚未登录，请先登录！');
         this.$router.push({
           path: '/'
-        }).catch(err =>{console.log(err)})
+        }).catch(err => {
+          console.log(err)
+        })
       }
     },
     methods: {
-      toBaseIndex(){
+      toBaseIndex() {
         this.$router.push({
           path: '/manager/',
           query: {
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        }).catch(err =>{console.log(err)})
+        }).catch(err => {
+          console.log(err)
+        })
       },
-      toPerInfo(){
+      toPerInfo() {
         this.$router.push({
           path: '/manager/perInfoTab',
           query: {
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        }).catch(err =>{console.log(err)})
+        }).catch(err => {
+          console.log(err)
+        })
       },
-      toAllStuTab(){
+      toAllStuTab() {
+        this.$router.push({
+          path: '/manager/listAllStudent',
+          query: {
+            usertype: this.$route.query.usertype,
+            username: this.$route.query.username
+          }
+        }).catch(err => {
+          console.log(err)
+        })
+      },
+      toAllStuCourseTab() {
 
       },
-      toAllStuCourseTab(){
+      toAllTeaTab() {
+        this.$router.push({
+          path: '/manager/listAllTeacher',
+          query: {
+            usertype: this.$route.query.usertype,
+            username: this.$route.query.username
+          }
+        }).catch(err => {
+          console.log(err)
+        })
+      },
+      toAllTeaCourseTab() {
 
       },
-      toAllTeaTab(){
+      toAllCourseTab() {
+        this.$router.push({
+          path: '/manager/listAllCourse',
+          query: {
+            usertype: this.$route.query.usertype,
+            username: this.$route.query.username
+          }
+        }).catch(err => {
+          console.log(err)
+        })
+      },
+      toAlterCourseTab() {
 
       },
-      toAllTeaCourseTab(){
+      toAlterStuGrade() {
 
       },
-      toAllCourseTab(){
-
-      },
-      toAlterCourseTab(){
-
-      },
-      toAlterStuGrade(){
-
-      },
-      toStuSelCourseTab(){
+      toStuSelCourseTab() {
 
       },
       logout() {

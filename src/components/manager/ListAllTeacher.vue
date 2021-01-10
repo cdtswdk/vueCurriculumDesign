@@ -5,13 +5,13 @@
       border
       style="width: 100%">
       <el-table-column
-        prop="studentid"
-        label="学生编号"
+        prop="teacherid"
+        label="教师编号"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="studentname"
-        label="学生姓名"
+        prop="teachername"
+        label="姓名"
         width="180">
       </el-table-column>
       <el-table-column
@@ -24,19 +24,19 @@
         label="专业">
       </el-table-column>
       <el-table-column
-        prop="classid"
-        label="班级">
-      </el-table-column>
-      <el-table-column
-        prop="studentsex"
+        prop="teachersex"
         label="性别">
       </el-table-column>
       <el-table-column
-        prop="studentbirthday"
+        prop="teacherbirthday"
         label="出生日期">
         <template slot-scope="scope">
-          {{formatDate(scope.row.studentbirthday)}}
+          {{formatDate(scope.row.teacherbirthday)}}
         </template>
+      </el-table-column>
+      <el-table-column
+        prop="teacherdesc"
+        label="简介">
       </el-table-column>
     </el-table>
     <pagination
@@ -51,10 +51,10 @@
 
 <script>
 
-  import {listAllStuByManagerId} from '@/api/manager'
+  import {listAllTeaByManagerId} from '@/api/manager'
 
   export default {
-    name: "ListAllStudent",
+    name: "ListAllTeacher",
     data() {
       return {
         tableData: [],
@@ -73,7 +73,7 @@
     methods: {
       getList() {
         this.queryParams.managerId = this.$route.query.username;
-        listAllStuByManagerId(this.queryParams).then(res => {
+        listAllTeaByManagerId(this.queryParams).then(res => {
           this.tableData = res.data;
           this.total = res.recordsTotal;
         })

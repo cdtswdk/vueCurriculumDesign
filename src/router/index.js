@@ -14,9 +14,10 @@ import teaPerCourseTab from '@/components/teacher/PerCourseTab'
 
 
 import manIndex from '@/components/manager/ManIndex'
-import listAllStudent from '@/components/manager/ListAllStudent'
 import perInfoTab from '@/components/manager/PerInfoTab'
-
+import listAllStudent from '@/components/manager/ListAllStudent'
+import listAllTeacher from '@/components/manager/ListAllTeacher'
+import listAllCourse from '@/components/manager/ListAllCourse'
 
 Vue.use(Router);
 
@@ -70,7 +71,6 @@ export default new Router({
           component: teaPerCourseTab
         },
       ]
-
     },
     {
       path: '/manager',
@@ -91,6 +91,16 @@ export default new Router({
           path: '/manager/listAllStudent',
           name: 'ListAllStudent',
           component: listAllStudent
+        },
+        {
+          path: '/manager/listAllTeacher',
+          name: 'ListAllTeacher',
+          component: listAllTeacher
+        },
+        {
+          path: '/manager/listAllCourse',
+          name: 'ListAllCourse',
+          component: listAllCourse
         }
       ]
     }

@@ -8,26 +8,41 @@ export function getPersonInfo(managerId) {
   })
 }
 
-export function listTeaCourseByTeaId(query) {
+export function listAllStuByManagerId(query) {
   return request({
-    url: '/teacher/listCourseByTeaId',
+    url: '/manager/listAllStuByManagerId',
     method: 'get',
     params:query
   })
 }
 
-export function listClsCourseByStuId(query) {
+export function listAllTeaByManagerId(query) {
   return request({
-    url: '/student/listClassByStuId',
+    url: '/manager/listAllTeaByManagerId',
     method: 'get',
     params:query
   })
 }
 
-export function listStuGradeByStuId(query) {
+export function listAllCourseByManagerId(query) {
   return request({
-    url: '/student/listGradeByStuId',
+    url: '/manager/listAllCourseByManagerId',
     method: 'get',
     params:query
+  })
+}
+
+export function queryCourse(query) {
+  return request({
+    url: '/manager/queryCourse',
+    method: 'get',
+    params:query
+  })
+}
+export function addCourse(data) {
+  return request({
+    url: '/manager/addCourse',
+    method: 'post',
+    params: data
   })
 }
