@@ -47,7 +47,7 @@
         ruleForm2: {
           username: '',
           password: '',
-          userType: "2"
+          userType: "3"
         },
         rules2: {
           username: [{required: true, message: '请输入账号', trigger: 'blur'}],
@@ -82,7 +82,7 @@
               } else if (res.usertype === "3") {
                 this.$router.push(
                   {
-                    path: '/teacher',
+                    path: '/manager',
                     query: {
                       usertype: 3,
                       username: res.username

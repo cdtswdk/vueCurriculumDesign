@@ -77,7 +77,7 @@
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        })
+        }).catch(err =>{console.log(err)})
       },
       toPerCourseTab() {
         this.$router.push({
@@ -86,7 +86,7 @@
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        })
+        }).catch(err =>{console.log(err)})
       },
       toClsCourseTab() {
         this.$router.push({
@@ -95,7 +95,7 @@
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        })
+        }).catch(err =>{console.log(err)})
       },
       toStuGradeTab() {
         this.$router.push({
@@ -104,7 +104,7 @@
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        })
+        }).catch(err =>{console.log(err)})
       },
       toStuSelCourseTab() {
 
