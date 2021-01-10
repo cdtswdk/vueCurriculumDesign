@@ -37,18 +37,18 @@
           {{formatDateTime(scope.row.coursecreatetime)}}
         </template>
       </el-table-column>
-      <el-table-column
+      <el-table-columnd
         prop="coursestarttime"
         label="开始时间"
-        width="150">
+        width="100">
         <template slot-scope="scope">
           {{formatDate(scope.row.coursestarttime)}}
         </template>
-      </el-table-column>
+      </el-table-columnd>
       <el-table-column
         prop="courseendtime"
         label="结束时间"
-        width="150">
+        width="100">
         <template slot-scope="scope">
           {{formatDate(scope.row.courseendtime)}}
         </template>
@@ -70,12 +70,25 @@
         </template>
       </el-table-column>
       <el-table-column
-        prop="courseweek"
+        prop="coursestatus"
         label="课程状态"
         width="100">
         <template slot-scope="scope">
           {{courseStatus[scope.row.coursestatus]}}
         </template>
+      </el-table-column>
+      <el-table-column
+        prop="coursetype"
+        label="课程类型"
+        width="100">
+        <template slot-scope="scope">
+          {{courseType[scope.row.coursetype]}}
+        </template>
+      </el-table-column>
+      <el-table-column
+        label="操作"
+        width="50">
+        <el-button type="primary" size="mini">查询选课学生信息</el-button>
       </el-table-column>
     </el-table>
     <pagination
@@ -104,7 +117,8 @@
           pageSize: 5,
           stuId: undefined
         },
-        courseStatus:['未结课','已结课']
+        courseStatus:['未结课','已结课'],
+        courseType:['选修课','必修课']
       }
     },
     created() {
