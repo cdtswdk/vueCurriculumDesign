@@ -17,10 +17,16 @@
       <el-table-column
         prop="coursestatus"
         label="课程状态">
+        <template slot-scope="scope">
+          {{courseStatus[scope.row.coursestatus]}}
+        </template>
       </el-table-column>
       <el-table-column
         prop="coursetype"
         label="课程类型">
+        <template slot-scope="scope">
+          {{courseType[scope.row.coursetype]}}
+        </template>
       </el-table-column>
       <el-table-column
         prop="grade"
@@ -57,23 +63,25 @@
           page: 1,
           pageSize: 5,
           stuId: undefined
-        }
+        },
+        courseStatus: ['未结课', '已结课'],
+        courseType: ['选修课', '必修课']
       }
     },
     created() {
       this.getList();
     },
-    methods:{
-      initData(){
+    methods: {
+      initData() {
         const StudentId = this.$route.query.username;
         listStuGradeByStuId(StudentId).then(res => {
           console.log(res);
           this.tableData = res;
         })
       },
-      getList(){
+      getList() {
         this.queryParams.stuId = this.$route.query.username;
-        listStuGradeByStuId(this.queryParams).then(res=>{
+        listStuGradeByStuId(this.queryParams).then(res => {
           this.tableData = res.data;
           this.total = res.recordsTotal;
         })

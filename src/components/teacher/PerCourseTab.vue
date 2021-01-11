@@ -90,11 +90,6 @@
           {{courseType[scope.row.coursetype]}}
         </template>
       </el-table-column>
-      <el-table-column
-        label="操作"
-        class-name="small-padding fixed-width">
-        <el-button type="primary" size="mini">登分</el-button>
-      </el-table-column>
     </el-table>
     <pagination
       v-show="total>0"

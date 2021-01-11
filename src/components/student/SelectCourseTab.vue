@@ -15,8 +15,8 @@
         width="180">
       </el-table-column>
       <el-table-column
-        prop="teacherid"
-        label="教师编号"
+        prop="teachername"
+        label="教师名字"
         width="180">
       </el-table-column>
       <el-table-column
