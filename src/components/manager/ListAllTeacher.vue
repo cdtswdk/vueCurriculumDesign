@@ -15,12 +15,12 @@
         width="180">
       </el-table-column>
       <el-table-column
-        prop="deptid"
+        prop="deptname"
         label="学院"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="majorid"
+        prop="majorname"
         label="专业">
       </el-table-column>
       <el-table-column

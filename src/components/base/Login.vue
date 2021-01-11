@@ -47,7 +47,7 @@
         ruleForm2: {
           username: '',
           password: '',
-          userType: "3"
+          userType: "1"
         },
         rules2: {
           username: [{required: true, message: '请输入账号', trigger: 'blur'}],

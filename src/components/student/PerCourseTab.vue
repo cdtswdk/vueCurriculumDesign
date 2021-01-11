@@ -81,7 +81,7 @@
           stuId: undefined
         },
         courseStatus: ['未结课', '已结课'],
-        courseType: ['选修课', '必修课'],
+        courseType: ['选修课', '必修课']
       }
     },
     created() {

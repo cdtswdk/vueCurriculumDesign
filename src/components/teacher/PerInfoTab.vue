@@ -10,6 +10,11 @@
         width="180">
       </el-table-column>
       <el-table-column
+        prop="teachername"
+        label="姓名"
+        width="180">
+      </el-table-column>
+      <el-table-column
         prop="deptname"
         label="所在学院"
         width="180">
@@ -17,10 +22,6 @@
       <el-table-column
         prop="majorname"
         label="所在专业">
-      </el-table-column>
-      <el-table-column
-        prop="teachername"
-        label="姓名">
       </el-table-column>
       <el-table-column
         prop="teachersex"
@@ -32,12 +33,12 @@
         label="出生日期"
         width="180">
         <template slot-scope="scope">
-          {{formatDate(scope.row.managerbirthday)}}
+          {{formatDate(scope.row.teacherbirthday)}}
         </template>
       </el-table-column>
       <el-table-column
         prop="teacherdesc"
-        label="性别"
+        label="教师简介"
         width="180">
       </el-table-column>
     </el-table>
@@ -45,7 +46,7 @@
 </template>
 
 <script>
-  import {getPersonInfo} from '@/api/manager'
+  import {getPersonInfo} from '@/api/teacher'
 
   export default {
     name: "PerInfoTab",
@@ -57,7 +58,7 @@
         queryParams: {
           page: 1,
           pageSize: 5,
-          managerId: undefined
+          teacherId: undefined
         }
       }
     },
@@ -66,7 +67,7 @@
     },
     methods: {
       getList() {
-        this.queryParams.managerId = this.$route.query.username;
+        this.queryParams.teacherId = this.$route.query.username;
         getPersonInfo(this.queryParams).then(res => {
           this.tableData = res.data;
         })

@@ -410,6 +410,7 @@
       // 表单重置
       reset() {
         this.form = {
+          managerId: undefined,
           courseid: undefined,
           teacherid: undefined,
           coursename: undefined,
@@ -432,6 +433,7 @@
       submitForm() {
         this.$refs["insertForm"].validate(valid => {
           if (valid) {
+            this.form.managerId = this.$route.query.username;
             addCourse(this.form).then(res => {
               console.log(res);
               this.msgSuccess("增加成功！");

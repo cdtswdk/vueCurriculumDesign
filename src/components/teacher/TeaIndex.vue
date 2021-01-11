@@ -21,7 +21,7 @@
             <template slot="title"><i class="el-icon-menu"></i>操作</template>
             <el-menu-item-group>
               <template slot="title">登分</template>
-              <el-menu-item index="2-1" @click="toStuSelCourseTab">课程登分</el-menu-item>
+              <el-menu-item index="2-1" @click="toGiveCourseGradeTab">课程登分</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
         </el-menu>
@@ -95,9 +95,9 @@
           console.log(err)
         })
       },
-      toStuGradeTab() {
+      toGiveCourseGradeTab(){
         this.$router.push({
-          path: '/student/stuGradeTab',
+          path: '/teacher/teaGiveCourseGradeTab',
           query: {
             usertype: this.$route.query.usertype,
             username: this.$route.query.username

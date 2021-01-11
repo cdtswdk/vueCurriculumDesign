@@ -15,6 +15,7 @@ import dropCourseTab from '@/components/student/DropCourseTab'
 import teaIndex from '@/components/teacher/TeaIndex'
 import perTeaInfoTab from '@/components/teacher/PerInfoTab'
 import teaPerCourseTab from '@/components/teacher/PerCourseTab'
+import teaGiveCourseGradeTab from '@/components/teacher/GiveCourseGradeTab'
 
 
 import manIndex from '@/components/manager/ManIndex'
@@ -80,14 +81,19 @@ export default new Router({
           component: baseIndex
         },
         {
+          path: '/teacher/perInfoTab',
+          name: 'PerInfoTab',
+          component: perTeaInfoTab
+        },
+        {
           path: '/teacher/perCourseTab',
           name: 'TeaPerCourseTab',
           component: teaPerCourseTab
         },
         {
-          path: '/teacher/perInfoTab',
-          name: 'PerInfoTab',
-          component: perTeaInfoTab
+          path: '/teacher/teaGiveCourseGradeTab',
+          name: 'GiveCourseGradeTab',
+          component: teaGiveCourseGradeTab
         }
       ]
     },

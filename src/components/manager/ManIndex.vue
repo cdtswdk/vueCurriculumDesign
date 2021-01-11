@@ -27,15 +27,6 @@
               <el-menu-item index="1-6" @click="toAllCourseTab">课程信息</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-          <el-submenu index="2">
-            <template slot="title"><i class="el-icon-menu"></i>操作</template>
-            <el-menu-item-group>
-              <template slot="title">课程</template>
-              <el-menu-item index="2-1" @click="toStuSelCourseTab">增加课程</el-menu-item>
-              <el-menu-item index="2-2" @click="toAlterCourseTab">修改课程信息</el-menu-item>
-              <el-menu-item index="2-3" @click="toAlterStuGrade">修改学生成绩</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
         </el-menu>
       </el-aside>
       <el-container>

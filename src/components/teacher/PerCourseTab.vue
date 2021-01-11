@@ -120,7 +120,7 @@
         queryParams: {
           page: 1,
           pageSize: 5,
-          stuId: undefined
+          teacherId: undefined
         },
         courseStatus:['未结课','已结课'],
         courseType:['选修课','必修课']
@@ -131,7 +131,7 @@
     },
     methods:{
       getList(){
-        this.queryParams.stuId = this.$route.query.username;
+        this.queryParams.teacherId = this.$route.query.username;
         listTeaCourseByTeaId(this.queryParams).then(res=>{
           this.tableData = res.data;
           this.total = res.recordsTotal;

@@ -1,25 +1,33 @@
 import request from '@/utils/request'
 
+export function getPersonInfo(teacherId) {
+  return request({
+    url: '/teacher/getPersonInfo',
+    method: 'get',
+    params: teacherId
+  })
+}
+
 export function listTeaCourseByTeaId(query) {
   return request({
     url: '/teacher/listCourseByTeaId',
     method: 'get',
-    params:query
+    params: query
   })
 }
 
-export function listClsCourseByStuId(query) {
+export function listSelCourseByCourseIdAndTeacherId(query) {
   return request({
-    url: '/student/listClassByStuId',
+    url: '/teacher/listSelCourseByCourseIdAndTeacherId',
     method: 'get',
-    params:query
+    params: query
   })
 }
 
-export function listStuGradeByStuId(query) {
+export function updateStuCourseGrade(form) {
   return request({
-    url: '/student/listGradeByStuId',
-    method: 'get',
-    params:query
+    url: '/teacher/updateStuCourseGrade',
+    method: 'post',
+    params: form
   })
 }

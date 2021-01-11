@@ -10,12 +10,12 @@
         width="180">
       </el-table-column>
       <el-table-column
-        prop="managerdeptid"
+        prop="deptname"
         label="所在学院"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="managermajorid"
+        prop="majorname"
         label="所在专业">
       </el-table-column>
       <el-table-column
