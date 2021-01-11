@@ -9,27 +9,20 @@
           <el-submenu index="1">
             <template slot="title"><i class="el-icon-message"></i>信息查询</template>
             <el-menu-item-group>
-              <template slot="title">课表</template>
-              <el-menu-item index="1-1" @click="toPerCourseTab">个人课表</el-menu-item>
-              <el-menu-item index="1-2" @click="toClsCourseTab">班级课表</el-menu-item>
+              <template slot="title">个人</template>
+              <el-menu-item index="1-1" @click="toPerInfoTab">个人信息查询</el-menu-item>
             </el-menu-item-group>
-            <el-menu-item-group title="成绩">
-              <el-menu-item index="1-3" @click="toStuGradeTab">成绩查询</el-menu-item>
+            <el-menu-item-group>
+              <template slot="title">课表</template>
+              <el-menu-item index="1-2" @click="toPerCourseTab">个人课表</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="2">
             <template slot="title"><i class="el-icon-menu"></i>操作</template>
             <el-menu-item-group>
-              <template slot="title">选课</template>
-              <el-menu-item index="2-1" @click="toStuSelCourseTab">选专业课</el-menu-item>
+              <template slot="title">登分</template>
+              <el-menu-item index="2-1" @click="toStuSelCourseTab">课程登分</el-menu-item>
             </el-menu-item-group>
-            <el-menu-item-group title="查询二">
-              <el-menu-item index="2-2">选项3</el-menu-item>
-            </el-menu-item-group>
-            <el-submenu index="2-3">
-              <template slot="title">选项4</template>
-              <el-menu-item index="2-4-1">选项4-1</el-menu-item>
-            </el-submenu>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -58,8 +51,7 @@
   export default {
     name: "TeaIndex",
     data() {
-      return {
-      }
+      return {}
     },
     beforeCreate() {
       if (this.$route.query.usertype == null || this.$route.query.username == null) {
@@ -70,14 +62,27 @@
       }
     },
     methods: {
-      toBaseIndex(){
+      toBaseIndex() {
         this.$router.push({
           path: '/teacher/',
           query: {
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        }).catch(err =>{console.log(err)})
+        }).catch(err => {
+          console.log(err)
+        })
+      },
+      toPerInfoTab() {
+        this.$router.push({
+          path: '/teacher/perInfoTab',
+          query: {
+            usertype: this.$route.query.usertype,
+            username: this.$route.query.username
+          }
+        }).catch(err => {
+          console.log(err)
+        })
       },
       toPerCourseTab() {
         this.$router.push({
@@ -86,16 +91,9 @@
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        }).catch(err =>{console.log(err)})
-      },
-      toClsCourseTab() {
-        this.$router.push({
-          path: '/student/clsCourseTab',
-          query: {
-            usertype: this.$route.query.usertype,
-            username: this.$route.query.username
-          }
-        }).catch(err =>{console.log(err)})
+        }).catch(err => {
+          console.log(err)
+        })
       },
       toStuGradeTab() {
         this.$router.push({
@@ -104,10 +102,9 @@
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        }).catch(err =>{console.log(err)})
-      },
-      toStuSelCourseTab() {
-
+        }).catch(err => {
+          console.log(err)
+        })
       },
       logout() {
         this.$confirm('您确定退出吗？').then(() => {

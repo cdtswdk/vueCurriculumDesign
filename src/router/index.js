@@ -11,12 +11,14 @@ import stuGradeTab from '@/components/student/StuGradeTab'
 import selectCourseTab from '@/components/student/SelectCourseTab'
 import dropCourseTab from '@/components/student/DropCourseTab'
 
+
 import teaIndex from '@/components/teacher/TeaIndex'
+import perTeaInfoTab from '@/components/teacher/PerInfoTab'
 import teaPerCourseTab from '@/components/teacher/PerCourseTab'
 
 
 import manIndex from '@/components/manager/ManIndex'
-import perInfoTab from '@/components/manager/PerInfoTab'
+import perManInfoTab from '@/components/manager/PerInfoTab'
 import listAllStudent from '@/components/manager/ListAllStudent'
 import listAllTeacher from '@/components/manager/ListAllTeacher'
 import listAllCourse from '@/components/manager/ListAllCourse'
@@ -82,6 +84,11 @@ export default new Router({
           name: 'TeaPerCourseTab',
           component: teaPerCourseTab
         },
+        {
+          path: '/teacher/perInfoTab',
+          name: 'PerInfoTab',
+          component: perTeaInfoTab
+        }
       ]
     },
     {
@@ -97,7 +104,7 @@ export default new Router({
         {
           path: '/manager/perInfoTab',
           name: 'PerInfoTab',
-          component: perInfoTab
+          component: perManInfoTab
         },
         {
           path: '/manager/listAllStudent',

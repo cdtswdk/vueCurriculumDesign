@@ -20,12 +20,38 @@
         width="180">
       </el-table-column>
       <el-table-column
-        prop="grade"
-        label="成绩">
+        prop="teachername"
+        label="教师名称"
+        width="180">
       </el-table-column>
       <el-table-column
-        prop="gradepoint"
-        label="绩点">
+        prop="courseweek"
+        label="上课时间"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="coursedaynum"
+        label="上课节数"
+        width="180">
+        <template slot-scope="scope">
+          第{{scope.row.coursedaynum}}节
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="coursestatus"
+        label="状态"
+        width="180">
+        <template slot-scope="scope">
+          {{courseStatus[scope.row.coursestatus]}}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="coursetype"
+        label="类型"
+        width="180">
+        <template slot-scope="scope">
+          {{courseType[scope.row.coursetype]}}
+        </template>
       </el-table-column>
     </el-table>
     <pagination
@@ -53,7 +79,9 @@
           page: 1,
           pageSize: 5,
           stuId: undefined
-        }
+        },
+        courseStatus: ['未结课', '已结课'],
+        courseType: ['选修课', '必修课'],
       }
     },
     created() {

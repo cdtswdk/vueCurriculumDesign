@@ -15,6 +15,11 @@
         width="100">
       </el-table-column>
       <el-table-column
+        prop="teachername"
+        label="教师名称"
+        width="100">
+      </el-table-column>
+      <el-table-column
         prop="coursename"
         label="名称"
         width="100">
@@ -37,14 +42,14 @@
           {{formatDateTime(scope.row.coursecreatetime)}}
         </template>
       </el-table-column>
-      <el-table-columnd
+      <el-table-column
         prop="coursestarttime"
         label="开始时间"
         width="100">
         <template slot-scope="scope">
           {{formatDate(scope.row.coursestarttime)}}
         </template>
-      </el-table-columnd>
+      </el-table-column>
       <el-table-column
         prop="courseendtime"
         label="结束时间"
@@ -87,8 +92,8 @@
       </el-table-column>
       <el-table-column
         label="操作"
-        width="50">
-        <el-button type="primary" size="mini">查询选课学生信息</el-button>
+        class-name="small-padding fixed-width">
+        <el-button type="primary" size="mini">登分</el-button>
       </el-table-column>
     </el-table>
     <pagination
