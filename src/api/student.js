@@ -39,3 +39,19 @@ export function getCourseByCourseId(courseId) {
     params: courseId
   })
 }
+
+export function selectCourseByCourseId(courseId) {
+  return request({
+    url: '/student/selectCourseByCourseId',
+    method: 'post',
+    params: courseId
+  })
+}
+
+export function dropCourseByCourseId(courseId) {
+  return request({
+    url: '/student/dropCourseByCourseId',
+    method: 'post',
+    params: courseId
+  })
+}

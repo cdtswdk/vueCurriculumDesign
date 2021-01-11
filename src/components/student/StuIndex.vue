@@ -25,7 +25,7 @@
             </el-menu-item-group>
             <el-menu-item-group>
               <template slot="title">退课</template>
-              <el-menu-item index="2-1" @click="toStuSelCourseTab">退课</el-menu-item>
+              <el-menu-item index="2-2" @click="toStuDropCourseTab">退课</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
         </el-menu>
@@ -55,26 +55,29 @@
   export default {
     name: "StuIndex",
     data() {
-      return {
-      }
+      return {}
     },
     beforeCreate() {
       if (this.$route.query.usertype == null || this.$route.query.username == null) {
         this.$message('学生尚未登录，请先登录！');
         this.$router.push({
           path: '/'
-        }).catch(err =>{console.log(err)})
+        }).catch(err => {
+          console.log(err)
+        })
       }
     },
     methods: {
-      toBaseIndex(){
+      toBaseIndex() {
         this.$router.push({
           path: '/student/',
           query: {
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        }).catch(err =>{console.log(err)})
+        }).catch(err => {
+          console.log(err)
+        })
       },
       toPerCourseTab() {
         this.$router.push({
@@ -83,7 +86,9 @@
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        }).catch(err =>{console.log(err)})
+        }).catch(err => {
+          console.log(err)
+        })
       },
       toClsCourseTab() {
         this.$router.push({
@@ -92,7 +97,9 @@
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        }).catch(err =>{console.log(err)})
+        }).catch(err => {
+          console.log(err)
+        })
       },
       toStuGradeTab() {
         this.$router.push({
@@ -101,7 +108,9 @@
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        }).catch(err =>{console.log(err)})
+        }).catch(err => {
+          console.log(err);
+        })
       },
       toStuSelCourseTab() {
         this.$router.push({
@@ -110,7 +119,20 @@
             usertype: this.$route.query.usertype,
             username: this.$route.query.username
           }
-        }).catch(err =>{console.log(err)})
+        }).catch(err => {
+          console.log(err);
+        })
+      },
+      toStuDropCourseTab(){
+        this.$router.push({
+          path: '/student/dropCourseTab',
+          query: {
+            usertype: this.$route.query.usertype,
+            username: this.$route.query.username
+          }
+        }).catch(err => {
+          console.log(err);
+        })
       },
       logout() {
         this.$confirm('您确定退出吗？').then(() => {

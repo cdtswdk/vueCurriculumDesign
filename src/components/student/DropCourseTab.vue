@@ -39,7 +39,7 @@
         <template slot-scope="scope">
           <el-button type="primary" size="mini" icon="el-icon-search" @click="handleQuery(scope.row)">详细信息
           </el-button>
-          <el-button type="warning" size="mini" icon="el-icon-edit" @click="handleSelect(scope.row)">选课
+          <el-button type="danger" size="mini" icon="el-icon-warning" @click="handleDrop(scope.row)">退课
           </el-button>
         </template>
       </el-table-column>
@@ -116,10 +116,10 @@
 
 <script>
 
-  import {getCourseByCourseId, listAllCourseByStuId,selectCourseByCourseId} from '@/api/student'
+  import {listStuCourseByStuId, getCourseByCourseId, dropCourseByCourseId} from '@/api/student'
 
   export default {
-    name: "SelectCourseTab",
+    name: "DropCourseTab",
     data() {
       return {
         tableData: [],
@@ -144,7 +144,7 @@
     methods: {
       getList() {
         this.queryParams.stuId = this.$route.query.username;
-        listAllCourseByStuId(this.queryParams).then(res => {
+        listStuCourseByStuId(this.queryParams).then(res => {
           this.tableData = res.data;
           this.total = res.recordsTotal;
         })
@@ -180,18 +180,18 @@
         };
         this.resetForm("queryForm");
       },
-      cancel(){
+      cancel() {
         this.reset();
         this.open = false;
       },
-      handleSelect(row) {
-        this.$confirm("您确定选择这门课吗？").then(()=>{
+      handleDrop(row) {
+        this.$confirm("您确定要退这门课吗？").then(() => {
           this.queryParams.courseId = row.courseid;
-          selectCourseByCourseId(this.queryParams).then(res=>{
-            this.msgSuccess('选课成功！');
-            console.log(res);
+          dropCourseByCourseId(this.queryParams).then(res => {
+            this.msgSuccess('退课成功！');
+            this.getList();
           })
-        }).catch(err=>{
+        }).catch(err => {
           console.log(err);
         })
       },

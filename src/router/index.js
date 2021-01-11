@@ -9,7 +9,7 @@ import perCourseTab from '@/components/student/PerCourseTab'
 import clsCourseTab from '@/components/student/ClsCourseTab'
 import stuGradeTab from '@/components/student/StuGradeTab'
 import selectCourseTab from '@/components/student/SelectCourseTab'
-
+import dropCourseTab from '@/components/student/DropCourseTab'
 
 import teaIndex from '@/components/teacher/TeaIndex'
 import teaPerCourseTab from '@/components/teacher/PerCourseTab'
@@ -59,6 +59,11 @@ export default new Router({
           path: '/student/selectCourseTab',
           name: 'SelectCourseTab',
           component: selectCourseTab
+        },
+        {
+          path: '/student/dropCourseTab',
+          name: 'SelectCourseTab',
+          component: dropCourseTab
         }
       ]
     },
