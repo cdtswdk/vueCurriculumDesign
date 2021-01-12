@@ -62,8 +62,9 @@
           if (valid) {
             this.loginLoading = true;
             userLogin(this.ruleForm2).then(res => {
-              console.log(res);
               if (res.usertype === "1") {
+                this.loginLoading = false;
+                this.msgSuccess("登录成功！");
                 this.$router.push({
                   path: '/student',
                   query: {
@@ -72,6 +73,8 @@
                   }
                 })
               } else if (res.usertype === "2") {
+                this.msgSuccess("登录成功！");
+                this.loginLoading = false;
                 this.$router.push({
                   path: '/teacher',
                   query: {
@@ -80,6 +83,8 @@
                   }
                 })
               } else if (res.usertype === "3") {
+                this.loginLoading = false;
+                this.msgSuccess("登录成功！");
                 this.$router.push(
                   {
                     path: '/manager',
@@ -90,12 +95,17 @@
                   }
                 )
               } else {
-                console.log('error login!');
+                this.loginLoading = false;
+                this.msgError("登录失败！");
                 return false;
               }
+            }).catch(err=>{
+              this.loginLoading = false;
+              this.msgError("登录失败！");
+              return false;
             })
           } else {
-            console.log('error submit!');
+            this.msgError("校验失败！");
             return false;
           }
         })

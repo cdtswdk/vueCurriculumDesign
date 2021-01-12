@@ -128,12 +128,6 @@
           console.log(err)
         })
       },
-      toAlterCourseTab() {
-
-      },
-      toAlterStuGrade() {
-
-      },
       toStuSelCourseTab() {
 
       },
