@@ -103,7 +103,7 @@
           </el-input>
         </el-form-item>
         <el-form-item label="课程类型:" prop="coursetype">
-          <el-input v-model="form.coursetype" clearable placeholder="请选择">
+          <el-input v-model="courseType[form.coursetype]" clearable placeholder="请选择">
           </el-input>
         </el-form-item>
       </el-form>
@@ -135,7 +135,9 @@
           pageSize: 5,
           stuId: undefined,
           courseId: undefined
-        }
+        },
+        courseStatus: ['未结课', '已结课'],
+        courseType: ['选修课', '必修课']
       }
     },
     created() {
